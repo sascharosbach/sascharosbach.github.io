@@ -29,7 +29,7 @@
       year: 2020-today
 
     - title: PhD Student
-      institution: Volkswagen Group Research
+      institution: Volkswagen Group Research, Wolfsburg, Germany
       year: 2017-2020
 
     - title: Deep Learning Intern
@@ -37,15 +37,15 @@
       year: 2016-2017
 
     - title: Master Thesis
-      institution: Audi Electronics Venture GmbH
+      institution: Audi Electronics Venture GmbH, Ingolstadt, Germany
       year: 2016
 
     - title: Bachelor Thesis
-      institution: ABB Corporate Research Center
+      institution: ABB Corporate Research Center, Ladenburg, Germany
       year: 2014
 
     - title: Corporate Student
-      institution: ABB Automation GmbH
+      institution: ABB Automation GmbH, Frankfurt am Main, Germany
       year: 2011-2014
 
 - title: Academic Interests
@@ -54,13 +54,15 @@
     - title: Deep Learning
       items: 
         - Context Understanding
+        - Language Models and Topic Models
     - title: Inverse Reinforcement Learning
       items:
         - Maximum Entropy Methods
     - title: Planning Algorithms
       items: 
         - Exhaustive Search
-
+        - Tree Search
+        - Importance Sampling Algorithms
 - title: Other Interests
   type: list
   contents:
