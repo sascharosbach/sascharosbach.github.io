@@ -11,7 +11,7 @@
   contents:
     - title: PhD Candidate Computer Science
       institution: University of Darmstadt, Darmstadt, Germany 
-      year: 2017 - today
+      year: 2017 - 2024
 
     - title: Master of Science Mechatronics
       institution: Friedrich-Alexander-Universität Erlangen-Nürnberg, Erlangen, Germany 
@@ -24,9 +24,13 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Staff Computer Vision and Robotics Engineer
+      institution: Deltia GmbH, Berlin, Germany
+      year: 2024-today
+
     - title: Senior Software Engineer
       institution: CARIAD SE, Wolfsburg, Germany
-      year: 2020-today
+      year: 2020-2024
 
     - title: PhD Student
       institution: Volkswagen Group Research, Wolfsburg, Germany
@@ -53,11 +57,12 @@
   contents:
     - title: Deep Learning
       items: 
-        - Context Understanding
-        - Language Models and Topic Models
-    - title: Inverse Reinforcement Learning
+        - Video Understanding
+        - Vision-Language Models
+        - Action Segmentation
+    - title: Reward Modelling 
       items:
-        - Maximum Entropy Methods
+        - Inverse Reinforcement Learning
     - title: Planning Algorithms
       items: 
         - Exhaustive Search

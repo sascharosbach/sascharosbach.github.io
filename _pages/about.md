@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Senior Software Engineer at <a href='https://cariad.technology/de/en/company.html'>CARIAD SE</a>.
+subtitle: Staff Computer Vision and Robotics Engineer at <a href='https://www.deltia.ai/'>Deltia GmbH</a>.
 
 profile:
   align: right
