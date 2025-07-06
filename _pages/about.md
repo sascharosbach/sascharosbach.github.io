@@ -2,7 +2,6 @@
 layout: about
 title: about
 permalink: /
-subtitle: Staff Computer Vision and Robotics Engineer at <a href='https://www.deltia.ai/'>Deltia GmbH</a>.
 
 profile:
   align: right
