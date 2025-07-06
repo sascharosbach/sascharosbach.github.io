@@ -8,8 +8,6 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
-  more_info: >
-    <p>Berlin, Germany</p>
 
 news: true  # includes a list of news items
 latest_posts: false  # includes a list of the newest posts
@@ -21,6 +19,6 @@ I am a Staff Computer Vision and Robotics Engineer at [Deltia GmbH](https://www.
 
 My research and engineering focus on building Vision-Language Models for manufacturing, enabling our clients to gain insights through temporal action segmentation and leveraging these models in robotic learning to automate manual assembly tasks.
 
-I obtained my Ph.D. under the supervision of [Prof. Stefan Roth](https://www.visinf.tu-darmstadt.de/visual_inference/people_vi/stefan_roth.en.jsp) in the Visual Inference Group at Technische Universität Darmstadt. During my Ph.D., I was employed by Volkswagen Group Research and Cariad SE, where I was a major contributor to the VW Group's decision-making and planning system for fully automated driving, working alongside Simon Großjohann and Silviu Homoceanu. My research focused on unifying prediction and planning in a hybrid approach to implement humanlike, assertive, and safe driving in interactive environments.
+I obtained my Ph.D. under the supervision of [Prof. Stefan Roth, Ph.D.](https://www.visinf.tu-darmstadt.de/visual_inference/people_vi/stefan_roth.en.jsp) in the Visual Inference Group at Technische Universität Darmstadt. During my Ph.D., I was employed by Volkswagen Group Research and Cariad SE, where I was a major contributor to the VW Group's decision-making and planning system for fully automated driving, working alongside Simon Großjohann and Silviu Homoceanu. My research focused on unifying prediction and planning in a hybrid approach to implement humanlike, assertive, and safe driving in interactive environments.
 
 I am passionate about designing and engineering AI systems that work under real-world conditions.
