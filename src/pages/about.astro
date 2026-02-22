@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About">
+  <article class="about">
+    <section class="intro">
+      <img src="/prof_pic.jpg" alt="Sascha Rosbach" class="profile-pic" />
+      <p>
+        I like building things that work in the real world. My research
+        sits at the intersection of deep learning, planning, and robotics
+        &mdash; from teaching cars to drive to teaching robots to assemble.
+        Outside of work, you'll find me kite surfing, snowboarding, or
+        tinkering with something new.
+      </p>
+    </section>
+
+    <section>
+      <h2>Research Interests</h2>
+      <p>
+        Deep Learning (Video Understanding, Vision-Language Models, Action Segmentation),
+        Reward Modelling (Inverse Reinforcement Learning),
+        Planning Algorithms (Exhaustive Search, Tree Search, Importance Sampling).
+      </p>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <p>English, German</p>
+    </section>
+
+    <section>
+      <h2>Hobbies</h2>
+      <p>Kite Surfing, Snowboarding, Building Things</p>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .about {
+    max-width: var(--content-max-width);
+  }
+
+  section {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+
+  .intro {
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 2px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    border: 1px solid var(--border-light);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .intro {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+
+</style>

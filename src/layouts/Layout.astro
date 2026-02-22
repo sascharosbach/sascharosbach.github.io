@@ -1,0 +1,344 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Sascha Rosbach', description = 'Personal website' } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Line (elegant-emacs style) -->
+      <header class="header-line">
+        <div class="header-left">
+          <button class="menu-icon" id="menu-toggle" aria-label="Toggle sidebar"><span class="icon-expand">&gt;</span><span class="icon-collapse">&lt;</span></button>
+          <span class="header-title">{title}</span>
+        </div>
+        <div class="header-right">
+        </div>
+      </header>
+
+      <div class="main-container">
+        <!-- Sidebar (mu4e dashboard style) -->
+        <nav class="sidebar">
+          <div class="nav-section">
+            <div class="nav-section-title">Navigate</div>
+            <ul class="nav-list">
+              <li>
+                <a href="/" class:list={[{ active: currentPath === '/' }]}>Home</a>
+              </li>
+              <li>
+                <a href="/about" class:list={[{ active: currentPath === '/about' }]}>About</a>
+              </li>
+              <li>
+                <a href="/publications" class:list={[{ active: currentPath === '/publications' }]}>Publications</a>
+              </li>
+              <li>
+                <a href="/writing" class:list={[{ active: currentPath === '/writing' }]}>Writing</a>
+              </li>
+              <li>
+                <a href="/cv" class:list={[{ active: currentPath === '/cv' }]}>CV</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-bottom">
+            <div class="nav-section">
+              <div class="nav-section-title">Connect</div>
+              <ul class="nav-list">
+                <li>
+                  <a href="https://github.com/sascharosbach" target="_blank" rel="noopener">GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/sascha-rosbach-752222122/" target="_blank" rel="noopener">LinkedIn</a>
+                </li>
+                <li>
+                  <a href="mailto:contact@sascharosbach.com">Mail</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+          <slot />
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header Line - elegant-emacs style */
+  .header-line {
+    height: var(--header-height);
+    padding: 0 var(--spacing);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-main);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--spacing);
+    right: var(--spacing);
+    height: 1px;
+    background-color: var(--border-light);
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+  }
+
+  .menu-icon {
+    font-weight: 500;
+    color: var(--fg-main);
+    background: none;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0.25em 0.5em;
+    margin: -0.25em -0.5em;
+    border-radius: 2px;
+  }
+
+  .menu-icon:hover {
+    background-color: var(--bg-dim);
+  }
+
+  .header-title {
+    font-weight: 400;
+    font-size: 1.5em;
+  }
+
+  .icon-expand {
+    display: none;
+  }
+
+  .icon-collapse {
+    display: inline;
+  }
+
+  :global(body.sidebar-collapsed) .icon-expand {
+    display: inline;
+  }
+
+  :global(body.sidebar-collapsed) .icon-collapse {
+    display: none;
+  }
+
+  .header-right {
+    color: var(--fg-dim);
+    font-size: var(--font-size-small);
+  }
+
+  /* Main Layout */
+  .main-container {
+    display: flex;
+    flex: 1;
+  }
+
+  /* Sidebar - mu4e dashboard style */
+  .sidebar {
+    width: var(--sidebar-width);
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-main);
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    transition: width 0.2s ease, padding 0.2s ease;
+  }
+
+  .nav-section {
+    margin-bottom: var(--spacing);
+  }
+
+  .sidebar-bottom {
+    margin-top: auto;
+  }
+
+  .sidebar-bottom .nav-section {
+    margin-bottom: 0;
+  }
+
+  .nav-section-title {
+    font-size: var(--font-size-small);
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75em;
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-list li {
+    margin-bottom: 0.25em;
+  }
+
+  .nav-list a {
+    display: flex;
+    align-items: baseline;
+    padding: 0.35em 0.5em;
+    color: var(--fg-main);
+    border-radius: 2px;
+    transition: background-color 0.1s ease;
+  }
+
+  .nav-list a::after {
+    content: '';
+    flex: 1;
+    margin-left: 0.5em;
+    border-bottom: 1px dotted var(--border-light);
+  }
+
+  .nav-list a:hover {
+    background-color: var(--bg-dim);
+    text-decoration: none;
+  }
+
+  .nav-list a:visited {
+    color: var(--fg-main);
+  }
+
+  .nav-list a.active {
+    background-color: var(--bg-dim);
+  }
+
+  /* Content Area */
+  .content {
+    flex: 1;
+    padding: var(--spacing);
+    max-width: calc(var(--content-max-width) + var(--spacing) * 2);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header-line {
+      display: none;
+    }
+
+    .main-container {
+      flex-direction: column;
+    }
+
+    .sidebar {
+      width: 100%;
+      min-height: auto;
+      height: auto;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: auto;
+      border-right: none;
+      border-top: 1px solid var(--border-light);
+      padding: 0.75em var(--spacing);
+      z-index: 100;
+    }
+
+    .nav-section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .nav-section-title {
+      display: none;
+    }
+
+    .nav-list {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    .nav-list li {
+      margin-bottom: 0;
+    }
+
+    .nav-list a {
+      font-size: var(--font-size-small);
+      padding: 0.35em 0.25em;
+    }
+
+    .nav-list a::after {
+      display: none;
+    }
+
+    .sidebar-bottom {
+      display: none;
+    }
+
+    .content {
+      max-width: 100%;
+      padding-bottom: 4em;
+    }
+
+  }
+  /* Sidebar collapsed state - desktop only */
+  @media (min-width: 769px) {
+    :global(body.sidebar-collapsed) .sidebar {
+      width: 0;
+      padding: 0;
+      overflow: hidden;
+      border-right: none;
+    }
+  }
+
+  :global(body.sidebar-collapsed) .content {
+    max-width: calc(var(--content-max-width) + var(--spacing) * 4);
+  }
+</style>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const body = document.body;
+
+  // Check localStorage for saved state
+  const sidebarCollapsed = localStorage.getItem('sidebar-collapsed') === 'true';
+  if (sidebarCollapsed) {
+    body.classList.add('sidebar-collapsed');
+  }
+
+  menuToggle?.addEventListener('click', () => {
+    body.classList.toggle('sidebar-collapsed');
+    localStorage.setItem('sidebar-collapsed', body.classList.contains('sidebar-collapsed'));
+  });
+</script>

@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [];
+---
+
+<Layout title="Writing">
+  <article class="writing">
+    <p class="intro text-dim">
+      Occasional thoughts on engineering and research.
+    </p>
+
+    <div class="post-list">
+      {posts.map((post) => (
+        <a href={`/writing/${post.slug}`} class="post">
+          <div class="post-header">
+            <span class="post-date">{post.date}</span>
+            <h2 class="post-title">{post.title}</h2>
+          </div>
+          <p class="post-description">{post.description}</p>
+        </a>
+      ))}
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .writing {
+    max-width: var(--content-max-width);
+  }
+
+  .intro {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+
+  .post-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post {
+    display: block;
+    padding: var(--spacing) 0;
+    border-bottom: 1px solid var(--border-light);
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.1s ease;
+  }
+
+  .post:first-child {
+    padding-top: 0;
+  }
+
+  .post:last-child {
+    border-bottom: none;
+  }
+
+  .post:hover {
+    background-color: var(--bg-dim);
+    margin: 0 calc(var(--spacing) * -0.5);
+    padding-left: calc(var(--spacing) * 0.5);
+    padding-right: calc(var(--spacing) * 0.5);
+  }
+
+  .post:visited {
+    color: inherit;
+  }
+
+  .post-header {
+    margin-bottom: 0.25em;
+  }
+
+  .post-date {
+    font-size: var(--font-size-small);
+    color: var(--fg-dim);
+  }
+
+  .post-title {
+    font-size: var(--font-size-large);
+    font-weight: 400;
+    margin: 0.25em 0;
+  }
+
+  .post-description {
+    color: var(--fg-dim);
+    margin: 0;
+  }
+</style>

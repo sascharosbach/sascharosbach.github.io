@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const experience = [
+  {
+    date: '2024–',
+    message: 'Staff Computer Vision and Robotics Engineer',
+    body: 'Deltia GmbH, Berlin, Germany',
+  },
+  {
+    date: '2020–24',
+    message: 'Senior Software Engineer',
+    body: 'CARIAD SE, Wolfsburg, Germany',
+  },
+  {
+    date: '2017–20',
+    message: 'PhD Student',
+    body: 'Volkswagen Group Research, Wolfsburg, Germany',
+  },
+  {
+    date: '2016–17',
+    message: 'Deep Learning Intern',
+    body: 'Electronics Research Laboratory, Belmont, USA',
+  },
+  {
+    date: '2016',
+    message: 'Master Thesis',
+    body: 'Audi Electronics Venture GmbH, Ingolstadt, Germany',
+  },
+  {
+    date: '2014',
+    message: 'Bachelor Thesis',
+    body: 'ABB Corporate Research Center, Ladenburg, Germany',
+  },
+  {
+    date: '2011–14',
+    message: 'Corporate Student',
+    body: 'ABB Automation GmbH, Frankfurt am Main, Germany',
+  },
+];
+
+const education = [
+  {
+    date: '2017–24',
+    message: 'PhD in Computer Science',
+    body: 'Technische Universität Darmstadt, Germany',
+  },
+  {
+    date: '2014–16',
+    message: 'Master of Science Mechatronics',
+    body: 'Friedrich-Alexander-Universität Erlangen-Nürnberg, Germany',
+  },
+  {
+    date: '2011–14',
+    message: 'Bachelor of Engineering Mechatronics',
+    body: 'Duale Hochschule Baden-Württemberg, Mannheim, Germany',
+  },
+];
+---
+
+<Layout title="CV">
+  <article class="cv">
+    <h2 class="section-title">Experience</h2>
+    <div class="log">
+      {experience.map((entry, i) => (
+        <div class="entry">
+          <div class="graph">
+            <span class="dot">{i === 0 ? '●' : '○'}</span>
+            {i < experience.length - 1 && <span class="line"></span>}
+          </div>
+          <div class="content">
+            <span class="date">{entry.date}</span>
+            <span class="msg">{entry.message}</span>
+            {entry.body && <span class="body">{entry.body}</span>}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="section-title">Education</h2>
+    <div class="log">
+      {education.map((entry, i) => (
+        <div class="entry">
+          <div class="graph">
+            <span class="dot">{i === 0 ? '●' : '○'}</span>
+            {i < education.length - 1 && <span class="line"></span>}
+          </div>
+          <div class="content">
+            <span class="date">{entry.date}</span>
+            <span class="msg">{entry.message}</span>
+            {entry.body && <span class="body">{entry.body}</span>}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </article>
+</Layout>
+
+<style>
+  .cv {
+    max-width: var(--content-max-width);
+  }
+
+  .section-title {
+    font-size: var(--font-size-large);
+    font-weight: 400;
+    color: var(--fg-dim);
+    margin-bottom: 1em;
+  }
+
+  .log {
+    margin-bottom: 2em;
+  }
+
+  .entry {
+    display: flex;
+    gap: 1em;
+  }
+
+  .graph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1em;
+    flex-shrink: 0;
+  }
+
+  .dot {
+    color: var(--fg-dim);
+    line-height: 1.6;
+  }
+
+  .graph .line {
+    width: 1px;
+    flex: 1;
+    background: var(--border-light);
+    min-height: 1em;
+  }
+
+  .content {
+    padding-bottom: 1.5em;
+  }
+
+  .date {
+    color: var(--fg-dim);
+    font-size: var(--font-size-small);
+    display: block;
+    margin-bottom: 0.25em;
+  }
+
+  .msg {
+    font-weight: 400;
+    display: block;
+  }
+
+  .body {
+    display: block;
+    color: var(--fg-dim);
+    font-size: var(--font-size-small);
+    margin-top: 0.25em;
+  }
+
+  .block {
+    background-color: var(--bg-dim);
+    padding: 1em;
+    border-radius: 2px;
+  }
+
+  .block .line {
+    padding: 0.2em 0;
+  }
+
+  .key {
+    display: inline-block;
+    width: 6em;
+    color: var(--fg-dim);
+  }
+
+  @media (max-width: 600px) {
+    .key {
+      width: 5em;
+    }
+  }
+</style>

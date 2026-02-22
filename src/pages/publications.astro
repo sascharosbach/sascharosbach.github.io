@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const thesis = {
+  title: 'A hybrid approach to automated driving unifying prediction and planning',
+  authors: ['Sascha Rosbach'],
+  venue: 'PhD Dissertation, Technische Universität Darmstadt',
+  year: 2024,
+  url: 'https://tuprints.ulb.tu-darmstadt.de/entities/publication/5fd7efc8-c075-4704-a919-9161ed6b46f4',
+};
+
+const publications = [
+  {
+    title: 'Pixel state value network for combined prediction and planning in interactive environments',
+    authors: ['Sascha Rosbach', 'Stefan Leupold', 'Simon Großjohann', 'Stefan Roth'],
+    venue: 'arXiv Preprint',
+    year: 2023,
+    url: 'https://arxiv.org/pdf/2310.07706',
+  },
+  {
+    title: 'Planning on the fast lane: Learning to interact using attention mechanisms in path integral inverse reinforcement learning',
+    authors: ['Sascha Rosbach', 'Xing Li', 'Simon Großjohann', 'Silviu Homoceanu', 'Stefan Roth'],
+    venue: 'IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)',
+    year: 2020,
+    url: 'https://arxiv.org/pdf/2007.05798',
+  },
+  {
+    title: 'Driving style encoder: Situational reward adaptation for general-purpose planning in automated driving',
+    authors: ['Sascha Rosbach', 'Vinit James', 'Simon Großjohann', 'Silviu Homoceanu', 'Xing Li', 'Stefan Roth'],
+    venue: 'IEEE International Conference on Robotics and Automation (ICRA)',
+    year: 2020,
+    url: 'https://arxiv.org/pdf/1912.03509',
+  },
+  {
+    title: 'Driving with style: Inverse reinforcement learning in general-purpose planning for automated driving',
+    authors: ['Sascha Rosbach', 'Vinit James', 'Simon Großjohann', 'Silviu Homoceanu', 'Stefan Roth'],
+    venue: 'IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)',
+    year: 2019,
+    url: 'https://arxiv.org/pdf/1905.00229',
+  },
+  {
+    title: 'Towards hybrid automated driving: From direct imitation learning to affordance learning',
+    authors: ['Sascha Rosbach', 'Antonia Breuer', 'Simon Barthel', 'Frederik Kanning', 'Silviu Homoceanu'],
+    venue: 'AAET - Automatisiertes und Vernetztes Fahren',
+    year: 2019,
+  },
+  {
+    title: 'An intuitive diagnostic model for gas analyzers based on self organizing maps',
+    authors: ['Subanatarajan Subbiah', 'Sascha Rosbach', 'Henning Von-Hoersten', 'Simone Turrin'],
+    venue: 'IFAC Symposium on Fault Detection, Supervision and Safety for Technical Processes (SAFEPROCESS)',
+    year: 2015,
+  },
+];
+
+const patents = [
+  {
+    title: 'Verfahren zum automatisierten Führen eines Fahrzeugs sowie Verfahren zum Erzeugen eines hierzu fähigen Modells des Maschinellen Lernens sowie Prozessorschaltung und Fahrzeug',
+    authors: ['Sascha Rosbach', 'Simon Großjohann'],
+    number: 'DE102022131178B3',
+    year: 2024,
+    holder: 'CARIAD SE',
+  },
+  {
+    title: 'Verfahren und Vorrichtung zum Bereitstellen einer Fahrstrategie für das automatisierte Fahren eines Fahrzeugs',
+    authors: ['Simon Großjohann', 'Silviu Homoceanu', 'Sascha Rosbach', 'Vinit James'],
+    number: 'DE102019216232A1',
+    year: 2019,
+    holder: 'Volkswagen AG',
+  },
+];
+---
+
+<Layout title="Publications">
+  <article class="publications">
+    <section>
+      <h2>Thesis</h2>
+      <div class="pub-list">
+        <div class="pub selected">
+          <span class="pub-year">{thesis.year}</span>
+          <div class="pub-content">
+            <a href={thesis.url} target="_blank" rel="noopener" class="pub-title">{thesis.title}</a>
+            <span class="pub-authors"><strong>{thesis.authors[0]}</strong></span>
+            <span class="pub-venue">{thesis.venue}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Papers</h2>
+      <div class="pub-list">
+        {publications.map((pub) => (
+          <div class:list={['pub', { selected: pub.selected }]}>
+            <span class="pub-year">{pub.year}</span>
+            <div class="pub-content">
+              {pub.url ? (
+                <a href={pub.url} target="_blank" rel="noopener" class="pub-title">{pub.title}</a>
+              ) : (
+                <span class="pub-title">{pub.title}</span>
+              )}
+              <span class="pub-authors">
+                {pub.authors.map((a, i) => (
+                  <>{a === 'Sascha Rosbach' ? <strong>{a}</strong> : a}{i < pub.authors.length - 1 ? ', ' : ''}</>
+                ))}
+              </span>
+              <span class="pub-venue">{pub.venue}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Patents</h2>
+      <div class="pub-list">
+        {patents.map((pat) => (
+          <div class="pub">
+            <span class="pub-year">{pat.year}</span>
+            <div class="pub-content">
+              <span class="pub-title">{pat.title}</span>
+              <span class="pub-authors">
+                {pat.authors.map((a, i) => (
+                  <>{a === 'Sascha Rosbach' ? <strong>{a}</strong> : a}{i < pat.authors.length - 1 ? ', ' : ''}</>
+                ))}
+              </span>
+              <span class="pub-venue">{pat.number} &middot; {pat.holder}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .publications {
+    max-width: var(--content-max-width);
+  }
+
+  h2 {
+    font-size: var(--font-size-large);
+    font-weight: 400;
+    color: var(--fg-dim);
+    margin-bottom: 1em;
+  }
+
+  section {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pub {
+    display: flex;
+    gap: 1.5em;
+    padding: var(--spacing) 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .pub:first-child {
+    padding-top: 0;
+  }
+
+  .pub:last-child {
+    border-bottom: none;
+  }
+
+  .pub.selected {
+    border-left: 2px solid var(--fg-main);
+    padding-left: 1em;
+  }
+
+  .pub-year {
+    color: var(--fg-dim);
+    font-size: var(--font-size-small);
+    min-width: 3em;
+    flex-shrink: 0;
+  }
+
+  .pub-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+  }
+
+  .pub-title {
+    font-weight: 400;
+  }
+
+  a.pub-title {
+    color: var(--fg-main);
+  }
+
+  a.pub-title:hover {
+    color: var(--link);
+  }
+
+  a.pub-title:visited {
+    color: var(--fg-main);
+  }
+
+  .pub-authors {
+    font-size: var(--font-size-small);
+    color: var(--fg-dim);
+  }
+
+  .pub-venue {
+    font-size: var(--font-size-small);
+    color: var(--fg-faint);
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .pub {
+      flex-direction: column;
+      gap: 0.25em;
+    }
+  }
+</style>

@@ -1,0 +1,181 @@
+/* Elegant Emacs / Modus Operandi inspired styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap');
+
+:root {
+  /* Modus Operandi Colors */
+  --bg-main: #ffffff;
+  --bg-dim: #f2f2f2;
+  --bg-alt: #f0f0f0;
+  --bg-active: #d7d7d7;
+  --bg-inactive: #e8e8e8;
+
+  --fg-main: #000000;
+  --fg-dim: #595959;
+  --fg-alt: #193668;
+  --fg-faint: #70627f;
+
+  --border: #9f9f9f;
+  --border-light: #d7d7d7;
+
+  /* Accent colors from modus-operandi */
+  --red: #a60000;
+  --green: #006800;
+  --blue: #0031a9;
+  --magenta: #721045;
+  --cyan: #005e8b;
+  --yellow: #6f5500;
+
+  /* Link colors */
+  --link: #0031a9;
+  --link-visited: #721045;
+
+  /* Layout */
+  --sidebar-width: 240px;
+  --header-height: 48px;
+  --content-max-width: 720px;
+  --spacing: 24px;
+
+  /* Typography */
+  --font-mono: 'Roboto Mono', ui-monospace, monospace;
+  --font-size-base: 14px;
+  --font-size-small: 12px;
+  --font-size-large: 16px;
+  --line-height: 1.6;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-mono);
+  font-weight: 300;
+  line-height: var(--line-height);
+  color: var(--fg-main);
+  background-color: var(--bg-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.1rem; }
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background-color: var(--bg-dim);
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+}
+
+pre {
+  background-color: var(--bg-dim);
+  padding: var(--spacing);
+  overflow-x: auto;
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+  border-left: 2px solid var(--border-light);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.25em;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--bg-active);
+  color: var(--fg-main);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Utility classes */
+.text-dim { color: var(--fg-dim); }
+.text-faint { color: var(--fg-faint); }
+.text-small { font-size: var(--font-size-small); }
+
+/* Elegant underline (like mode-line) */
+.underline-separator {
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* mu4e dashboard style bullet points */
+.nav-bullet::before {
+  content: '▸';
+  margin-right: 0.5em;
+  color: var(--fg-dim);
+}
+
+/* Modified indicator style */
+.modified::after {
+  content: ' (modified)';
+  color: var(--fg-dim);
+}

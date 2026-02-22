@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home">
+  <article class="home">
+    <section class="bio">
+      <p>
+        I am a Staff Computer Vision and Robotics Engineer at
+        <a href="https://www.deltia.ai/">Deltia GmbH</a>, a venture-backed
+        Berlin startup founded within the
+        <a href="https://www.merantix.com/">Merantix</a> ecosystem.
+      </p>
+      <p>
+        I build Vision-Language Models for manufacturing.
+        My work enables insights through temporal action segmentation
+        and uses these models in robotic learning to automate assembly tasks.
+      </p>
+      <p>
+        I did my Ph.D. at
+        <a href="https://www.visinf.tu-darmstadt.de/visual_inference/people_vi/stefan_roth.en.jsp">TU Darmstadt</a>
+        under Stefan Roth in the Visual Inference Group.
+        During that time I worked at Volkswagen Group Research and CARIAD SE,
+        building the decision-making and planning system for automated driving.
+        My research unified prediction and planning to enable humanlike,
+        assertive driving in interactive environments.
+      </p>
+      <p>
+        I am passionate about AI systems that work under real-world conditions.
+      </p>
+    </section>
+
+    <section class="recent">
+      <h2>News</h2>
+      <ul class="recent-list">
+        <li>
+          <span class="date">2024-11-01</span>
+          <span>Started as a Staff Computer Vision and Robotics Engineer at Deltia GmbH.</span>
+        </li>
+        <li>
+          <span class="date">2020-10-01</span>
+          <span>Transitioned from Volkswagen Group Research to CARIAD SE.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="now">
+      <h2>Now</h2>
+      <p class="text-dim">
+        Building Vision-Language Models for manufacturing, enabling
+        temporal action segmentation and leveraging these models in
+        robotic learning to automate manual assembly tasks.
+      </p>
+    </section>
+
+    <section class="newsletter">
+      <h2>Newsletter</h2>
+      <p class="text-dim">Occasional updates on my work and research.</p>
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/sascharosbach"
+        method="post"
+        class="newsletter-form"
+      >
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <input type="hidden" name="embed" value="1" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .home {
+    max-width: var(--content-max-width);
+  }
+
+  section {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+
+  .recent-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .recent-list li {
+    display: flex;
+    gap: 1.5em;
+    padding: 0.5em 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .recent-list li:last-child {
+    border-bottom: none;
+  }
+
+  .date {
+    color: var(--fg-dim);
+    font-size: var(--font-size-small);
+    min-width: 8em;
+  }
+
+  .now p {
+    border-left: 2px solid var(--border-light);
+    padding-left: 1em;
+    font-style: italic;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 1em;
+  }
+
+  .newsletter-form input[type="email"] {
+    flex: 1;
+    padding: 0.5em 0.75em;
+    font-family: inherit;
+    font-size: inherit;
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    color: var(--fg-main);
+  }
+
+  .newsletter-form input[type="email"]::placeholder {
+    color: var(--fg-faint);
+  }
+
+  .newsletter-form button {
+    padding: 0.5em 1.25em;
+    font-family: inherit;
+    font-size: inherit;
+    background: var(--fg-main);
+    color: var(--bg-main);
+    border: 1px solid var(--fg-main);
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .newsletter-form button:hover {
+    background: var(--fg-dim);
+    border-color: var(--fg-dim);
+  }
+</style>
