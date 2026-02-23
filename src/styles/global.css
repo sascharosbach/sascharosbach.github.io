@@ -38,7 +38,7 @@
 
   /* Typography */
   --font-mono: 'Roboto Mono', ui-monospace, monospace;
-  --font-size-base: 14px;
+  --font-size-base: 15px;
   --font-size-small: 12px;
   --font-size-large: 16px;
   --line-height: 1.6;
@@ -58,7 +58,7 @@ html {
 
 body {
   font-family: var(--font-mono);
-  font-weight: 300;
+  font-weight: 400;
   line-height: var(--line-height);
   color: var(--fg-main);
   background-color: var(--bg-main);
